@@ -14,20 +14,20 @@ app.use(cookieParser());
 app.use("/api/auth", authRoutes);
 
 app.get("/", (req, res) => {
-  res.send("🚀 API is running");
+  res.send("API is running");
 });
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`✅ Server is running on http://localhost:${PORT}`);
+  console.log(` Server is running on http://localhost:${PORT}`);
   testDBConnection();
 });
 
 async function testDBConnection() {
   try {
     await prisma.$connect();
-    console.log("✅ Connected to MongoDB via Prisma");
+    console.log("Connected to MongoDB via Prisma");
   } catch (error) {
-    console.error("❌ Failed to connect to MongoDB:", error.message);
+    console.error("Failed to connect to MongoDB:", error.message);
   }
 }
